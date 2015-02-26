@@ -1,0 +1,31 @@
+{
+  "name": "react-gooey-nav",
+  "version": "1.0.0",
+  "description": "React Gooey Navigation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "(webpack -w &) && cd ./example && http-server"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-component",
+    "component",
+    "navigation",
+    "gooey"
+  ],
+  "author": "Gal Schlezinger",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^0.12.2"
+  },
+  "devDependencies": {
+    "jsx-loader": "^0.12.2"
+  },
+  "dependencies": {
+    "clone": "^1.0.0",
+    "extend": "^2.0.0",
+    "object-assign": "^2.0.0"
+  }
+}
