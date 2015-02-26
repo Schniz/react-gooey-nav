@@ -1,6 +1,6 @@
 {
   "name": "react-gooey-nav",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "React Gooey Navigation",
   "main": "index.js",
   "scripts": {
@@ -27,5 +27,16 @@
     "clone": "^1.0.0",
     "extend": "^2.0.0",
     "object-assign": "^2.0.0"
-  }
+  },
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schniz/react-gooey-nav"
+  },
+  "bugs": {
+    "url": "https://github.com/schniz/react-gooey-nav/issues"
+  },
+  "homepage": "https://github.com/schniz/react-gooey-nav"
 }
