@@ -1,2 +1,4 @@
 webpack
+git add example/build/main.js
+git commit -m "updated github-pages script"
 git subtree push --prefix example origin gh-pages
