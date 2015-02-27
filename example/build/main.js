@@ -74,7 +74,7 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(7);
+	module.exports = __webpack_require__(8);
 
 
 /***/ },
@@ -91,7 +91,7 @@
 	var HoverMixin = __webpack_require__(5);
 	var baseCss = __webpack_require__(6);
 
-	var MenuOpenButton = __webpack_require__(8);
+	var MenuOpenButton = __webpack_require__(7);
 	var MenuItem = __webpack_require__(4);
 
 	var GooeyNav = React.createClass({displayName: "GooeyNav",
@@ -241,6 +241,74 @@
 
 /***/ },
 /* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */
+
+	"use strict";
+
+	var React = __webpack_require__(2);
+	var assign = __webpack_require__(9);
+	var HoverMixin = __webpack_require__(5);
+	var css = __webpack_require__(6);
+
+	var MenuOpenButton = React.createClass({displayName: "MenuOpenButton",
+	  mixins: [HoverMixin],
+
+	  generateHamburgerCss:function(i) {
+	    return css.menuOpenButton.hamburger(this.state.isOpen, i);
+	  },
+
+	  generateStyle:function() {
+	    var style = assign({}, css.ball, {
+	      zIndex: 2,
+	      transitionTimingFunction: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)',
+	      transitionDuration: '400ms',
+	      transform: 'scale(1.1,1.1) translate3d(0,0,0)',
+	      cursor: 'pointer'
+	    });
+
+	    if (this.state.isHover) {
+	      style = assign({}, style, {
+	        transform: 'scale(1.2,1.2) translate3d(0,0,0)'
+	      });
+	    }
+
+	    if (this.state.isOpen) {
+	      style = assign({}, style, {
+	        transitionTimingFunction: 'linear',
+	        transitionDuration: '200ms',
+	        transform: 'scale(0.8,0.8) translate3d(0,0,0)'
+	      });
+	    }
+
+	    return style;
+	  },
+
+	  getInitialState:function() {
+	    return {
+	      isOpen: false
+	    };
+	  },
+	  onToggle:function() {
+	    var isOpen = !this.state.isOpen;
+	    this.props.onOpenChanged && this.props.onOpenChanged(isOpen);
+	    this.setState({ isOpen: isOpen });
+	  },
+	  render:function() {
+	    return (
+	      React.createElement("a", {onClick:  this.onToggle, onMouseEnter:  this.onHoverIn, onMouseLeave:  this.onHoverOut, style:  this.generateStyle() }, 
+	         [0,1,2].map(function(i)  { return (React.createElement("span", {key: i, style:  this.generateHamburgerCss(i) })) }.bind(this)) 
+	      )
+	    );
+	  }
+	});
+
+	module.exports = MenuOpenButton;
+
+
+/***/ },
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -429,74 +497,6 @@
 	module.exports = React;
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(39)))
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/** @jsx React.DOM */
-
-	"use strict";
-
-	var React = __webpack_require__(2);
-	var assign = __webpack_require__(9);
-	var HoverMixin = __webpack_require__(5);
-	var css = __webpack_require__(6);
-
-	var MenuOpenButton = React.createClass({displayName: "MenuOpenButton",
-	  mixins: [HoverMixin],
-
-	  generateHamburgerCss:function(i) {
-	    return css.menuOpenButton.hamburger(this.state.isOpen, i);
-	  },
-
-	  generateStyle:function() {
-	    var style = assign({}, css.ball, {
-	      zIndex: 2,
-	      transitionTimingFunction: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)',
-	      transitionDuration: '400ms',
-	      transform: 'scale(1.1,1.1) translate3d(0,0,0)',
-	      cursor: 'pointer'
-	    });
-
-	    if (this.state.isHover) {
-	      style = assign({}, style, {
-	        transform: 'scale(1.2,1.2) translate3d(0,0,0)'
-	      });
-	    }
-
-	    if (this.state.isOpen) {
-	      style = assign({}, style, {
-	        transitionTimingFunction: 'linear',
-	        transitionDuration: '200ms',
-	        transform: 'scale(0.8,0.8) translate3d(0,0,0)'
-	      });
-	    }
-
-	    return style;
-	  },
-
-	  getInitialState:function() {
-	    return {
-	      isOpen: false
-	    };
-	  },
-	  onToggle:function() {
-	    var isOpen = !this.state.isOpen;
-	    this.props.onOpenChanged && this.props.onOpenChanged(isOpen);
-	    this.setState({ isOpen: isOpen });
-	  },
-	  render:function() {
-	    return (
-	      React.createElement("a", {onClick:  this.onToggle, onMouseEnter:  this.onHoverIn, onMouseLeave:  this.onHoverOut, style:  this.generateStyle() }, 
-	         [0,1,2].map(function(i)  { return (React.createElement("span", {key: i, style:  this.generateHamburgerCss(i) })) }.bind(this)) 
-	      )
-	    );
-	  }
-	});
-
-	module.exports = MenuOpenButton;
-
 
 /***/ },
 /* 9 */
