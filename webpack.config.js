@@ -6,7 +6,7 @@ var webpackConf = {
   cache: true,
   entry: 
   {
-    main: './example'
+    main: './example/src/main'
   },
   output: {
     path: './example/build/',

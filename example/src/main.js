@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var { GooeyNav } = require('./index');
+var { GooeyNav } = require('../../index');
 
 var menuItems = [{
   className: "fa fa-facebook",
