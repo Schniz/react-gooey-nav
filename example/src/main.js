@@ -5,7 +5,10 @@ var { GooeyNav } = require('../../index');
 
 var menuItems = [{
   className: "fa fa-facebook",
-  title: "Shalom Olam"
+  title: "Facebook!"
+}, {
+  className: "fa fa-linkedin",
+  title: "Linked In!"
 }, {
   className: "fa fa-twitter",
   title: "Tweet Tweet!"
