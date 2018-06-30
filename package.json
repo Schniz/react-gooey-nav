@@ -6,16 +6,12 @@
   "source": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "(webpack -w &) && cd ./example && http-server"
+    "build":
+      "rm -rf dist/* && parcel build --no-cache -t node --detailed-report --experimental-scope-hoisting src/index.ts",
+    "prepublishOnly": "npm run build",
+    "start": "parcel example/index.html"
   },
-  "keywords": [
-    "react",
-    "reactjs",
-    "react-component",
-    "component",
-    "navigation",
-    "gooey"
-  ],
+  "keywords": ["react", "reactjs", "react-component", "component", "navigation", "gooey"],
   "author": "Gal Schlezinger",
   "license": "ISC",
   "peerDependencies": {
@@ -26,11 +22,10 @@
     "@types/react-dom": "^16.0.6",
     "parcel": "^1.9.3",
     "react": "^16.0.0",
-    "typescript": "^2.9.2",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "typescript": "^2.9.2"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "directories": {
     "example": "example"
   },

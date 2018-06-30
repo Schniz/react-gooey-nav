@@ -1,7 +1,7 @@
 import * as React from "react";
 import ball from "./ball";
 
-export type Orientation = "right" | "left" | "top";
+export type Orientation = "right" | "left" | "top" | "bottom";
 var orient = function(orientation: Orientation, index: number, amount: number = 80) {
   var xOrient = 0;
   var yOrient = 0;

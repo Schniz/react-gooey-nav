@@ -1,1 +1,3 @@
-export { GooeyNav } from "./GooeyNav";
+import Menu from "./Menu";
+
+export { Menu };
