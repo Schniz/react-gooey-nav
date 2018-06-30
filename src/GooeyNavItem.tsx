@@ -6,23 +6,24 @@ export type Props<A> = {
   revealed: boolean;
   position: number;
   title: string;
+  children: React.ReactNode | React.ReactNode[];
   className?: string;
   component?: string | React.ComponentType<A>;
   componentProps?: A;
 };
 type State = { hovered: boolean };
-export default class GooeyNavItem<A> extends React.Component<Props<A>, State> {
+export default class GooeyNavItem<A> extends React.Component<Props<any>, State> {
   state = { hovered: false };
 
   render() {
     const {
+      children,
       component: Component = "a",
-      revealed,
+      componentProps,
       orientation,
       position: index,
-      title,
-      className,
-      componentProps
+      revealed,
+      title
     } = this.props;
     return (
       <Component
@@ -37,7 +38,7 @@ export default class GooeyNavItem<A> extends React.Component<Props<A>, State> {
         }}
         {...componentProps}
       >
-        <i className={className} />
+        {children}
       </Component>
     );
   }

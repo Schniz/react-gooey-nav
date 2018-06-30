@@ -8,9 +8,10 @@ import { Orientation } from "./style/menuItem";
 import GooeyNavItem from "./GooeyNavItem";
 import { Props as ItemProps } from "./Item";
 
+type ItemChild = React.ReactElement<ItemProps<any>>;
 type Props = {
   orientation?: Orientation;
-  children: React.ReactElement<ItemProps<any>>[];
+  children: ItemChild | ItemChild[];
 };
 type State = { open: boolean };
 
@@ -53,8 +54,8 @@ export default class Menu extends React.Component<Props, State> {
               orientation={this.props.orientation || "bottom"}
               revealed={this.state.open}
               position={i + 1}
-              className={element.props.className}
               title={element.props.title}
+              children={element.props.children}
               component={element.props.component}
               componentProps={element.props.componentProps}
             />

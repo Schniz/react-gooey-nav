@@ -2,11 +2,16 @@ import * as React from "react";
 import { render } from "react-dom";
 import { Menu, Item } from "../../src/index";
 
+const Icon = ({ name }: { name: string }) => <i className={`fa fa-${name}`} />;
+
 render(
   <Menu>
+    <Item title="Twitter!">
+      <Icon name="twitter" />
+    </Item>
     <Item
       title="Facebook!"
-      className="fa fa-facebook"
+      component="a"
       componentProps={{
         href: "https://facebook.com",
         target: "_blank",
@@ -16,8 +21,9 @@ render(
           e.preventDefault();
         }
       }}
-    />
-    <Item title="Twitter!" className="fa fa-twitter" />
+    >
+      <Icon name="facebook" />
+    </Item>
   </Menu>,
   document.getElementById("main")
 );
