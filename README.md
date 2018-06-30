@@ -13,20 +13,19 @@ npm install --save react-gooey-nav
 ## Usage
 
 ```jsx
-import { Menu } from "react-gooey-nav";
+import { Menu, Item } from "react-gooey-nav";
 
-var menuItems = [
-  {
-    title: "Tweet",
-    className: "fa fa-twitter"
-  },
-  {
-    title: "Share on Facebook",
-    className: "fa fa-facebook"
-  }
-];
-
-var nav = <GooeyNav orientation="bottom" menuItems={menuItems} />;
+var nav = (
+  <Menu orientation="bottom">
+    <Item title="Cool!">😎</Item>
+    <Item
+      title="Kitty"
+      componentProps={{ onClick: () => console.log("Meow!") }}
+    >
+      😸
+    </Item>
+  </Menu>
+);
 ```
 
 ## Help me make this thing better!

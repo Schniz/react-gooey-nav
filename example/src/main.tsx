@@ -24,6 +24,7 @@ render(
     >
       <Icon name="facebook" />
     </Item>
+    <Item title="Cool!">😎</Item>
   </Menu>,
   document.getElementById("main")
 );

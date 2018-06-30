@@ -31,6 +31,7 @@ export function std({ orientation, index }: Options): React.CSSProperties {
     ...ball,
     color: "white",
     background: "#ffc107",
+    textDecoration: "none",
     transform: `translate3d(${-x}px, ${-y}px, 0) rotate(-180deg)`
   };
 }

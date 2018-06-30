@@ -19,7 +19,7 @@ export default class GooeyNavItem<A> extends React.Component<Props<any>, State> 
     const {
       children,
       component: Component = "a",
-      componentProps,
+      componentProps: { style, ...compProps } = {} as { style?: React.CSSProperties },
       orientation,
       position: index,
       revealed,
@@ -34,9 +34,10 @@ export default class GooeyNavItem<A> extends React.Component<Props<any>, State> 
         style={{
           ...menuItemStyle.std({ index, orientation }),
           ...(this.state.hovered && menuItemStyle.hover),
-          ...(revealed && menuItemStyle.revealed({ index, orientation }))
+          ...(revealed && menuItemStyle.revealed({ index, orientation })),
+          ...style
         }}
-        {...componentProps}
+        {...compProps}
       >
         {children}
       </Component>
