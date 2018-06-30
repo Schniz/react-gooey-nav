@@ -6,9 +6,12 @@ import GooeySvg from "./GooeySvg";
 import MenuOpenButton from "./MenuOpenButton";
 import { Orientation } from "./style/menuItem";
 import GooeyNavItem from "./GooeyNavItem";
+import { Props as ItemProps } from "./Item";
 
-type ProvidedMenuItem = { className?: string; title: string };
-type Props = { menuItems: ProvidedMenuItem[]; orientation?: Orientation };
+type Props = {
+  orientation?: Orientation;
+  children: React.ReactElement<ItemProps<any>>[];
+};
 type State = { open: boolean };
 
 export default class Menu extends React.Component<Props, State> {
@@ -16,8 +19,7 @@ export default class Menu extends React.Component<Props, State> {
     foregroundColor: "#ffc107",
     backgroundColor: "#009688",
     openDistance: "105px",
-    openingAngle: Math.PI * 2,
-    menuItems: []
+    openingAngle: Math.PI * 2
   };
 
   state = { open: false };
@@ -29,21 +31,6 @@ export default class Menu extends React.Component<Props, State> {
   }
 
   onOpenChanged = (open: boolean) => this.setState({ open });
-
-  getMenuItems() {
-    return this.props.menuItems.map((menuItem, i) => {
-      return (
-        <GooeyNavItem
-          key={i}
-          orientation={this.props.orientation || "bottom"}
-          revealed={this.state.open}
-          position={i + 1}
-          title={menuItem.title}
-          className={menuItem.className}
-        />
-      );
-    });
-  }
 
   render() {
     return (
@@ -58,7 +45,20 @@ export default class Menu extends React.Component<Props, State> {
           paddingBottom: 81
         }}
       >
-        {this.getMenuItems()}
+        {this.props.children
+          .concat([])
+          .map((element, i) => (
+            <GooeyNavItem
+              key={i}
+              orientation={this.props.orientation || "bottom"}
+              revealed={this.state.open}
+              position={i + 1}
+              className={element.props.className}
+              title={element.props.title}
+              component={element.props.component}
+              componentProps={element.props.componentProps}
+            />
+          ))}
         <MenuOpenButton open={this.state.open} onOpenChanged={this.onOpenChanged} />
       </nav>
     );

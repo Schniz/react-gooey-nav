@@ -1,34 +1,44 @@
 import * as React from "react";
 import * as menuItemStyle from "./style/menuItem";
 
-export type Props = {
+export type Props<A> = {
   orientation: menuItemStyle.Orientation;
   revealed: boolean;
   position: number;
   title: string;
   className?: string;
+  component?: string | React.ComponentType<A>;
+  componentProps?: A;
 };
 type State = { hovered: boolean };
-export default class GooeyNavItem extends React.Component<Props, State> {
+export default class GooeyNavItem<A> extends React.Component<Props<A>, State> {
   state = { hovered: false };
 
-  styleProps = () => ({ index: this.props.position, orientation: this.props.orientation });
-
   render() {
+    const {
+      component: Component = "a",
+      revealed,
+      orientation,
+      position: index,
+      title,
+      className,
+      componentProps
+    } = this.props;
     return (
-      <a
+      <Component
         href="#"
-        title={this.props.title}
+        title={title}
         onMouseEnter={() => this.setState({ hovered: true })}
         onMouseLeave={() => this.setState({ hovered: false })}
         style={{
-          ...menuItemStyle.std(this.styleProps()),
+          ...menuItemStyle.std({ index, orientation }),
           ...(this.state.hovered && menuItemStyle.hover),
-          ...(this.props.revealed && menuItemStyle.revealed(this.styleProps()))
+          ...(revealed && menuItemStyle.revealed({ index, orientation }))
         }}
+        {...componentProps}
       >
-        <i className={this.props.className} />
-      </a>
+        <i className={className} />
+      </Component>
     );
   }
 }
