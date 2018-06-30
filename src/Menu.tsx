@@ -1,21 +1,18 @@
-import React from "react";
+import * as React from "react";
 
 import goo from "./style/goo";
 
-// import MenuOpenButton from "./MenuOpenButton";
-// import MenuItem from "./GooeyNavItem";
 import GooeySvg from "./GooeySvg";
 import MenuOpenButton from "./MenuOpenButton";
 import { Orientation } from "./style/menuItem";
 import GooeyNavItem from "./GooeyNavItem";
 
 type ProvidedMenuItem = { className?: string; title: string };
-type Props = { menuItems: ProvidedMenuItem[]; orientation: Orientation };
+type Props = { menuItems: ProvidedMenuItem[]; orientation?: Orientation };
 type State = { open: boolean };
 
-export class GooeyNav extends React.Component<Props, State> {
+export default class Menu extends React.Component<Props, State> {
   static defaultProps = {
-    orientation: "bottom",
     foregroundColor: "#ffc107",
     backgroundColor: "#009688",
     openDistance: "105px",
@@ -38,7 +35,7 @@ export class GooeyNav extends React.Component<Props, State> {
       return (
         <GooeyNavItem
           key={i}
-          orientation={this.props.orientation}
+          orientation={this.props.orientation || "bottom"}
           revealed={this.state.open}
           position={i + 1}
           title={menuItem.title}

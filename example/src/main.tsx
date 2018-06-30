@@ -1,6 +1,6 @@
 import * as React from "react";
 import { render } from "react-dom";
-import { GooeyNav } from "../../src/index";
+import { Menu } from "../../src/index";
 
 var menuItems = [
   {
@@ -17,4 +17,4 @@ var menuItems = [
   }
 ];
 
-render(<GooeyNav menuItems={menuItems} />, document.getElementById("main"));
+render(<Menu menuItems={menuItems} />, document.getElementById("main"));
