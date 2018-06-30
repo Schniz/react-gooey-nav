@@ -1,9 +1,11 @@
-"use strict";
+type Options = {
+  id?: string;
+};
 
-var GooeySvg = function(opts) {
+export default (opts: Options) => {
   var id = opts.id || "gooey-nav-svg";
-  var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.setAttribute('version', "1.1");
+  var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("version", "1.1");
   svg.id = id;
   svg.innerHTML = `
     <defs>
@@ -25,5 +27,3 @@ var GooeySvg = function(opts) {
   `;
   return svg;
 };
-
-module.exports = GooeySvg;
