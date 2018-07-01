@@ -1,34 +1,35 @@
-React Gooey Navigation Menu
-===========================
+# React Gooey Navigation Menu
 
 based on [Lucas Bebber's Gooey Menu](http://codepen.io/lbebber/pen/rawQKR)
 
-Installation
-------------
+I've updated the implementation to use TypeScript and modern-ish React
+
+## Installation
+
 ```bash
 npm install --save react-gooey-nav
 ```
 
-Usage
------
-```javascript
-var GooeyNav = require('react-gooey-nav');
+## Usage
 
-var menuItems = [{
-  title: "Tweet",
-  className: "fa fa-twitter"
-}, {
-  title: "Share on Facebook",
-  className: "fa fa-facebook"
-}];
+```jsx
+import { Menu, Item } from "react-gooey-nav";
 
-var nav = <GooeyNav orientation="bottom" menuItems={ menuItems } />;
-
-// do whatever you want with it.
+var nav = (
+  <Menu orientation="bottom">
+    <Item title="Cool!">😎</Item>
+    <Item
+      title="Kitty"
+      componentProps={{ onClick: () => console.log("Meow!") }}
+    >
+      😸
+    </Item>
+  </Menu>
+);
 ```
 
-Help me make this shit better
------------------------------
+## Help me make this thing better!
+
 :octocat:
 
 Thanks Lucas!

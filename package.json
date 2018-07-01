@@ -2,32 +2,30 @@
   "name": "react-gooey-nav",
   "version": "0.0.1",
   "description": "React Gooey Navigation",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "source": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "(webpack -w &) && cd ./example && http-server"
+    "build":
+      "rm -rf dist/* && parcel build --no-cache -t node --detailed-report --experimental-scope-hoisting src/index.ts",
+    "prepublishOnly": "npm run build",
+    "start": "parcel example/index.html"
   },
-  "keywords": [
-    "react",
-    "reactjs",
-    "react-component",
-    "component",
-    "navigation",
-    "gooey"
-  ],
+  "keywords": ["react", "reactjs", "react-component", "component", "navigation", "gooey"],
   "author": "Gal Schlezinger",
   "license": "ISC",
   "peerDependencies": {
-    "react": "^0.12.2"
+    "react": "^16.4.1"
   },
   "devDependencies": {
-    "jsx-loader": "^0.12.2"
+    "@types/react": "^16.4.6",
+    "@types/react-dom": "^16.0.6",
+    "parcel": "^1.9.3",
+    "react": "^16.0.0",
+    "react-dom": "^16.4.1",
+    "typescript": "^2.9.2"
   },
-  "dependencies": {
-    "clone": "^1.0.0",
-    "extend": "^2.0.0",
-    "object-assign": "^2.0.0"
-  },
+  "dependencies": {},
   "directories": {
     "example": "example"
   },
