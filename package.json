@@ -1,17 +1,23 @@
 {
   "name": "react-gooey-nav",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "description": "React Gooey Navigation",
   "main": "dist/index.js",
   "source": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":
-      "rm -rf dist/* && parcel build --no-cache -t node --detailed-report --experimental-scope-hoisting src/index.ts",
+    "build": "rm -rf dist/* && parcel build --no-cache -t node --detailed-report --experimental-scope-hoisting src/index.ts",
     "prepublishOnly": "npm run build",
     "start": "parcel example/index.html"
   },
-  "keywords": ["react", "reactjs", "react-component", "component", "navigation", "gooey"],
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-component",
+    "component",
+    "navigation",
+    "gooey"
+  ],
   "author": "Gal Schlezinger",
   "license": "ISC",
   "peerDependencies": {
