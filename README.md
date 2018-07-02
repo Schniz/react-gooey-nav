@@ -28,6 +28,14 @@ var nav = (
 );
 ```
 
+## Development
+
+Run the example with:
+
+```bash
+npm start
+```
+
 ## Help me make this thing better!
 
 :octocat:
